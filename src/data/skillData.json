@@ -1,0 +1,13 @@
+[
+  { "name": "Figma", "icon": "SiFigma", "category": "Design", "color": "text-pink-500" },
+  { "name": "React", "icon": "SiReact", "category": "Frontend", "color": "text-cyan-400" },
+  { "name": "Tailwind", "icon": "SiTailwindcss", "category": "Design", "color": "text-blue-400" },
+  { "name": "JavaScript", "icon": "SiJavascript", "category": "Frontend", "color": "text-yellow-400" },
+  
+  { "name": "C++", "icon": "SiCplusplus", "category": "Backend/Logic", "color": "text-blue-600" },
+  { "name": "DSA", "icon": "IoGitBranchSharp", "category": "Backend/Logic", "color": "text-red-500" },
+  { "name": "HTML5", "icon": "SiHtml5", "category": "Frontend", "color": "text-orange-500" },
+  { "name": "CSS3", "icon": "SiCss3", "category": "Frontend", "color": "text-blue-500" },
+  { "name": "Git/GitHub", "icon": "SiGithub", "category": "Tools", "color": "text-white" }
+  
+]
