@@ -1,7 +1,7 @@
-// src/hooks/useSplitText.js
+
 import React from 'react';
 
-// Simple function to split text into words and wrap them in a span
+
 const useSplitText = (text) => {
   if (!text) return [];
 

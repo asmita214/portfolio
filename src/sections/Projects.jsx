@@ -1,9 +1,9 @@
-// src/sections/Projects.jsx
+
 import React, { useRef } from 'react'; 
 import { motion, useInView } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
-// Dummy Project Data (Keeping the same data)
+
 const PROJECTS_DATA = [
     {
         title: "ARGO Visualizing Oceanic Data",
@@ -16,7 +16,7 @@ const PROJECTS_DATA = [
     }
 ];
 
-// --- Reusable Project Showcase Component ---
+
 const ProjectShowcase = ({ project, index }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -39,12 +39,12 @@ const ProjectShowcase = ({ project, index }) => {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
         >
-            {/* 1. Project Image (5/12 width) */}
+           
             <motion.div 
                 variants={imageSlideVariants}
-                // FIX: Shadow changed to Soft Magenta
+                
                 className={`w-full md:w-5/12 rounded-xl shadow-2xl shadow-[#FF33CC]/10 overflow-hidden border border-gray-700/50 transition-all duration-300 transform hover:scale-[1.03] ${isOdd ? 'md:ml-12' : 'md:mr-12'} mb-8 md:mb-0`}
-                whileHover={{ y: -5, boxShadow: '0 0 30px rgba(255, 51, 204, 0.5)' }} // FIX: Hover glow
+                whileHover={{ y: -5, boxShadow: '0 0 30px rgba(255, 51, 204, 0.5)' }}
             >
                 <img 
                     src={project.image} 
@@ -53,39 +53,37 @@ const ProjectShowcase = ({ project, index }) => {
                 />
             </motion.div>
 
-            {/* 2. Project Details (7/12 width) */}
+           
             <motion.div 
                 variants={slideVariants}
                 className={`w-full md:w-7/12 relative ${isOdd ? 'md:text-left' : 'md:text-right'}`}
             >
-                {/* Project Index/Type Tag */}
-                {/* FIX: Text color changed to Soft Magenta */}
+                
                 <p className={`text-sm font-semibold text-[#FF33CC] mb-2 ${isOdd ? 'md:text-left' : 'md:text-right'}`}>
                     Project {index + 1} // {project.type}
                 </p>
                 
-                {/* Title FIX: Changed size for proper hierarchy */}
+               
                 <h3 className={`text-3xl md:text-4xl font-extrabold text-white mb-4 ${isOdd ? 'md:text-left' : 'md:text-right'}`}>
                     {project.title}
                 </h3>
                 
-                {/* Description Card FIX: Removed problematic negative margins. Added md:p-8 for size */}
-                {/* FIX: Accent color on border changed to Soft Magenta */}
+                
                 <div className={`p-6 md:p-8 rounded-lg shadow-lg bg-dark-card/80 border-t-2 border-[#FF33CC]/50 mb-6`}>
                     <p className="text-gray-300 text-lg">{project.description}</p>
                 </div>
                 
-                {/* Tags */}
+                
                 <div className={`flex flex-wrap gap-3 mb-6 ${isOdd ? 'justify-start' : 'justify-end'}`}>
                     {project.tags.map(tag => (
-                        // FIX: Tag color changed to Soft Magenta
+                        
                         <span key={tag} className="text-sm text-[#FF33CC] border border-[#FF33CC]/50 px-3 py-1 rounded-full bg-[#FF33CC]/10">
                             {tag}
                         </span>
                     ))}
                 </div>
 
-                {/* Links */}
+                
                 <div className={`flex space-x-6 ${isOdd ? 'justify-start' : 'justify-end'}`}>
                     <a 
                         href={project.github} 
@@ -101,7 +99,7 @@ const ProjectShowcase = ({ project, index }) => {
                             href={project.live} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            // FIX: Accent color changed to Soft Magenta
+                            
                             className="text-[#FF33CC] hover:text-white transition-colors duration-300 transform hover:scale-110"
                             title="Live Demo"
                         >
@@ -120,12 +118,12 @@ const Projects = () => {
         <section id="projects" className="py-24 md:py-40 px-4 bg-dark-bg">
             <div className="max-w-7xl mx-auto">
                 
-                {/* Heading FIX: Increased size for proper hierarchy */}
+                
                 <motion.h2 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    // FIX: Changed color to Soft Magenta
+                    
                     className="text-5xl md:text-6xl font-extrabold text-[#FF33CC] mb-4 text-center tracking-wider uppercase"
                 >
                     Featured Work
@@ -140,9 +138,9 @@ const Projects = () => {
                     A minimalist timeline of my significant technical creations.
                 </motion.p>
                 
-                {/* Projects Showcase */}
+                
                 <div className="relative">
-                    {/* Optional: Add a subtle vertical line to create a "timeline" effect */}
+                    
                     <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-800 hidden md:block"></div>
                     
                     {PROJECTS_DATA.map((project, index) => (

@@ -1,8 +1,8 @@
-// src/sections/About.jsx
+
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
-// --- 1. Helper component for sexy word-by-word heading (Theme Updated) ---
+
 const SplitHeading = ({ text }) => {
     const words = text.split(" ");
     const container = {
@@ -17,9 +17,9 @@ const SplitHeading = ({ text }) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.8 }} 
-            // FIX: text-color changed to a Softer Magenta
+           
             className="text-5xl md:text-6xl font-extrabold text-[#FF33CC] mb-16 pb-2 text-center tracking-widest uppercase"
-            // FIX: Text Shadow color opacity reduced
+            
             style={{ textShadow: '0 0 8px rgba(255, 51, 204, 0.6), 0 0 5px rgba(255, 51, 204, 0.4)' }}
         >
             {words.map((word, index) => (
@@ -31,7 +31,7 @@ const SplitHeading = ({ text }) => {
     );
 };
 
-// --- 2. Custom Card Component with 3D Parallax Hover AND Mouse-Follow Glow (Theme Updated) ---
+
 const ParallaxCard = ({ title, icon, content, delay }) => {
     const ref = useRef(null);
     const x = useMotionValue(0);
@@ -82,10 +82,10 @@ const ParallaxCard = ({ title, icon, content, delay }) => {
             // FIX: Border hover color changed to Neon Cyan/Aqua
             className="relative bg-dark-card p-6 rounded-xl border border-gray-700/50 transition-all duration-300 transform hover:border-[#00FFFF]/80 overflow-hidden"
         >
-            {/* MOUSE FOLLOW GLOW EFFECT */}
+          
             <motion.div
                 style={{ 
-                    // FIX: Glow color is now Soft Magenta/Pink
+                  
                     background: 'radial-gradient(circle at center, rgba(255, 51, 204, 0.45) 0%, transparent 70%)',
                     left: glowX, 
                     top: glowY,
@@ -99,7 +99,7 @@ const ParallaxCard = ({ title, icon, content, delay }) => {
             
             {/* CARD CONTENT */}
             <div style={{ transform: "translateZ(30px)" }} className="relative"> 
-                {/* FIX: Title color changed to Soft Magenta/Pink */}
+                
                 <h3 className="text-2xl font-bold text-[#FF33CC] mb-3 flex items-center">
                     {icon}
                     {title}
@@ -114,7 +114,7 @@ const ParallaxCard = ({ title, icon, content, delay }) => {
 };
 
 
-// --- 3. Main About Component (Theme Updated) ---
+
 const About = () => {
 
     const introText = [
@@ -134,7 +134,7 @@ const About = () => {
         })
     };
 
-    // --- Icon SVGs (Same) ---
+  
     const Icons = {
         Design: (<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>),
         Frontend: (<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>),
@@ -150,11 +150,10 @@ const About = () => {
         >
             <div className="max-w-6xl mx-auto">
                 
-                {/* 1. Heading (Staggered Word Reveal) */}
+               
                 <SplitHeading text="ABOUT THE CREATOR" />
 
-                {/* 2. Introduction Card (Line-by-Line Reveal) */}
-                {/* FIX: Reduced shadow opacity for the main card */}
+               
                 <div className="bg-dark-card p-8 md:p-12 rounded-2xl shadow-[0_0_20px_rgba(255,51,204,0.1)] border border-gray-800/80 mb-20">
                     <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light italic text-center">
                         {introText.map((line, index) => (
@@ -172,7 +171,7 @@ const About = () => {
                     </p>
                 </div>
                 
-                {/* 3. Key Focus Points (3D Parallax Glow Cards) */}
+               
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     
                     <ParallaxCard 

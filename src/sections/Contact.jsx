@@ -1,21 +1,21 @@
-// src/sections/Contact.jsx
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiDownloadCloud } from 'react-icons/fi';
 import { SiLeetcode } from 'react-icons/si';
 
-// ✅ Updated FORM_URL with your Formspree endpoint
+
 const FORM_URL = 'https://formspree.io/f/xgvnjgzz';
 const RESUME_PATH = '/Resume.pdf';
 
-// --- Social Links Data ---
+
 const SOCIALS = [
   { name: 'GitHub', icon: FiGithub, href: 'https://github.com/asmita214' },
   { name: 'LinkedIn', icon: FiLinkedin, href: 'https://www.linkedin.com/in/asmita-gupta-12b313332/' },
   { name: 'LeetCode', icon: SiLeetcode, href: 'https://leetcode.com/u/MnoE1SW499/' },
 ];
 
-// --- Animation Variants ---
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
@@ -26,10 +26,10 @@ const itemVariants = {
 };
 
 const Contact = () => {
-  // ✨ Added form state for success/error
+  
   const [status, setStatus] = useState('');
 
-  // ✅ Handle submit using fetch (no page reload)
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -43,7 +43,7 @@ const Contact = () => {
 
       if (response.ok) {
         setStatus('SUCCESS');
-        e.target.reset(); // Clear form after success
+        e.target.reset(); 
       } else {
         setStatus('ERROR');
       }
@@ -64,7 +64,7 @@ const Contact = () => {
     >
       <div className="max-w-4xl mx-auto">
         
-        {/* Heading */}
+      
         <motion.h2 
           variants={itemVariants}
           className="text-5xl md:text-6xl font-extrabold text-[#FF33CC] mb-4 text-center tracking-wider uppercase"
@@ -75,12 +75,12 @@ const Contact = () => {
           Let's build something fundamentally robust together.
         </motion.p>
         
-        {/* --- Socials & Resume --- */}
+    
         <motion.div 
           variants={containerVariants}
           className="bg-dark-card p-8 rounded-xl shadow-2xl shadow-[#FF33CC]/5 border border-gray-800/80 mb-12 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0"
         >
-          {/* Socials Block */}
+         
           <div className="flex flex-col items-center md:items-start">
             <motion.p 
               variants={itemVariants} 
@@ -104,7 +104,7 @@ const Contact = () => {
             </motion.div>
           </div>
 
-          {/* Resume Download Button */}
+         
           <motion.a 
             variants={itemVariants}
             href={RESUME_PATH} 
@@ -116,7 +116,6 @@ const Contact = () => {
           </motion.a>
         </motion.div>
 
-        {/* --- Contact Form --- */}
         <motion.div 
           variants={containerVariants}
           className="bg-dark-card p-8 md:p-10 rounded-xl shadow-2xl shadow-[#FF33CC]/5 border border-gray-800/80"
@@ -125,7 +124,6 @@ const Contact = () => {
             Send A Direct Message
           </motion.p>
 
-          {/* ✅ FORM UPDATED */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <motion.input 
               variants={itemVariants}
@@ -161,7 +159,6 @@ const Contact = () => {
             </motion.button>
           </form>
 
-          {/* ✅ Success & Error Messages */}
           {status === 'SUCCESS' && (
             <motion.p 
               initial={{ opacity: 0, y: 10 }}

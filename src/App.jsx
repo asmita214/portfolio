@@ -1,10 +1,4 @@
-// src/App.jsx (The Final Corrected Structure)
-import React from 'react';
 
-// THEME CONTEXT IMPORT IS MANDATORY FOR TOGGLE TO WORK!
-
-
-// Import all sections and components
 import Navbar from './components/Navbar'; 
 import Hero from './sections/Hero'; 
 import About from './sections/About'; 
@@ -28,7 +22,7 @@ function App() {
           <Navbar /> 
 
           <main>
-            {/* All sections with unique IDs for Navbar Active State */}
+           
             <Hero id="home" /> 
             <About id="about" /> 
             <Skills id="skills" />
